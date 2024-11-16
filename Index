@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator and Horoscope</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4e1e1;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            height: 40px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            height: 40px;
+            font-size: 18px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff4b5c;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e63946;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #ff4b5c;
+        }
+        .horoscope {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Love Calculator</h1>
+    <input type="text" id="name1" placeholder="Your Name">
+    <input type="text" id="name2" placeholder="Partner's Name">
+    <button onclick="calculateLove()">Calculate Love Score</button>
+    
+    <div class="result" id="loveResult"></div>
+
+    <h2>Love Horoscope</h2>
+    <button onclick="generateHoroscope()">Get Love Horoscope</button>
+    <div class="horoscope" id="horoscopeResult"></div>
+</div>
+
+<script>
+    function calculateLove() {
+        const name1 = document.getElementById('name1').value;
+        const name2 = document.getElementById('name2').value;
+
+        if (name1 === "" || name2 === "") {
+            document.getElementById('loveResult').innerText = "Please enter both names.";
+            return;
+        }
+
+        const loveScore = Math.floor(Math.random() * 101); // Random score from 0 to 100
+        document.getElementById('loveResult').innerText = `Love Score: ${loveScore}%`;
+    }
+
+    function generateHoroscope() {
+        const horoscopes = [
+            "Today is a great day to express your feelings. Don't hold back!",
+            "A surprise awaits you in your love life. Stay open to new possibilities.",
+            "Your bond will strengthen today. Spend quality time with your partner.",
+            "Communication is key today. Share your thoughts and feelings openly.",
+            "You may meet someone special today. Keep your heart open!",
+            "Trust your instincts when it comes to love. They will guide you wisely.",
+            "A romantic surprise is just around the corner. Be ready!",
+            "Today is a good day to reflect on your relationship and set new goals.",
+            "You might find clarity in a confusing situation. Trust the process.",
+            "Love is in the air! Enjoy the little moments with your loved one."
+        ];
+
+        const randomIndex = Math.floor(Math.random() * horoscopes.length);
+        document.getElementById('horoscopeResult').innerText = horoscopes[randomIndex];
+    }
+</script>
+
+</body>
+</html>
